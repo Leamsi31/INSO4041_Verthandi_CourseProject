@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "name": "recommendersystemserver",
+  "version": "1.0.0",
+  "description": "Server program for the UPRM extracurricular activity recommender system",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Verthandi",
+  "license": "ISC"
 }
