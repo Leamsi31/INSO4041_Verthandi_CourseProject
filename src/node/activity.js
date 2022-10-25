@@ -1,4 +1,11 @@
 class Activity {
+    
+    #name
+    #id 
+    #requirementCourses
+    #requirementYear
+    #tags
+
     constructor(activityConfig) {
         this.name = activityConfig.name;
         this.id = activityConfig.id;
@@ -26,5 +33,18 @@ class Activity {
     getTags() {
         return this.tags;
     }
+
+    setRequirementCourses(requirementCourses) {
+        this.requirementCourses = requirementCourses;
+    }
+
+    setRequirementYear() {
+        this.requirementYear = requirementYear;
+    }
+
+    setTags(tags) {
+        this.tags = tags;
+    }
+
 
 };
