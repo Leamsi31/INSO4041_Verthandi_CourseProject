@@ -25,10 +25,10 @@ function parseActivities(filename) {
     lines.forEach((line) => {
         const fields = line.split(',');
 
-        const id = fields[0];
+        const id = parseInt(fields[0]);
         const name = fields[1];
         const initials = fields[2];
-        const classification = fields[3].split(';');
+        const classification = fields[3].split(';').filter(e => !(e.match(/\s/) || !e));
         const orgEmail = fields[4];
         const councillorEmail = fields[6];
         const presidentEmail = fields[7];
