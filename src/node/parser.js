@@ -8,10 +8,6 @@ const departmentLUT = {
     Multidisciplinario : []
 };
 
-function handleData(err, data) {
-
-}
-
 function parseActivities(filename) {
     const activityConfigs = [];
     data = fs.readFileSync(filename, 'utf8')
