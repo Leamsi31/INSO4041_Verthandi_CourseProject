@@ -1,16 +1,20 @@
-console.log("Loaded hello world");
-
+const path = require('path');
 const http = require('http');
+const fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+
+
+
+
+
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+    var json = require('./package.json');
+    res.writeHead(200, { 'Content-Type': 'application/json'})
+    res.end(JSON.stringify(json))
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
