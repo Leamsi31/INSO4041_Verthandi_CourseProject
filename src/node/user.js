@@ -6,4 +6,4 @@ class User {
         this.username = userconfig.username;
         this.hash = userconfig.hash;
     }
-}
+};
