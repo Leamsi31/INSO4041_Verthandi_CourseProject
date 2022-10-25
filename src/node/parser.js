@@ -28,7 +28,7 @@ function parseActivities(filename) {
         const id = fields[0];
         const name = fields[1];
         const initials = fields[2];
-        const classification = fields[3];
+        const classification = fields[3].split(';');
         const orgEmail = fields[4];
         const councillorEmail = fields[6];
         const presidentEmail = fields[7];
