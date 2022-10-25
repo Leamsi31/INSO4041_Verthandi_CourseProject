@@ -1,7 +1,7 @@
 const path = require('path');
 const http = require('http');
 const fs = require('fs');
-
+const parser = require('./parser.js')
 
 
 
@@ -9,9 +9,9 @@ const fs = require('fs');
 
 
 const server = http.createServer((req, res) => {
-    var json = require('./package.json');
+    const json = parser.parseActivities('..\\..\\data\\activities.csv\\');
     res.writeHead(200, { 'Content-Type': 'application/json'})
-    res.end(JSON.stringify(json))
+    res.end(json)
 });
 
 

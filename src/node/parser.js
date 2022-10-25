@@ -63,8 +63,6 @@ function parseActivities(filename) {
     return JSON.stringify(activityConfigs);
 }
 
-console.log(parseActivities('..\\..\\data\\activities.csv\\'));
-
 module.exports = {
     parseActivities
 };
