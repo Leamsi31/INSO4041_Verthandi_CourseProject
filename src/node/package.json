@@ -6,7 +6,9 @@
   "version": "1.0.0",
   "description": "Server program for the UPRM extracurricular activity recommender system",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
