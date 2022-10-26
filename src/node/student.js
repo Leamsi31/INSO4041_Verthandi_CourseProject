@@ -1,6 +1,6 @@
-import 'user';
+const user = require('./user');
 
-class Student extends User {
+class Student extends user.User {
 
     #coursingYear
     #major
@@ -10,10 +10,9 @@ class Student extends User {
         // Super constructor will initialize all the account credentials
         super(userconfig);
 
-        coursingYear = userconfig.coursingYear;
-        major = userconfig.major;
-        // Tags are initialized as empty array, will populate with questionnaire results.
-        tags = [];
+        this.coursingYear = userconfig.coursingYear;
+        this.major = userconfig.major;
+        this.tags = userconfig.tags;
     }
 
     getCoursingYear() {
@@ -31,4 +30,8 @@ class Student extends User {
     setTags(tags) {
         this.tags = tags;
     }
+};
+
+module.exports = {
+    Student
 };
