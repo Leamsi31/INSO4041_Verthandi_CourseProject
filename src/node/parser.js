@@ -24,7 +24,7 @@ function parseActivities(filename) {
         const id = parseInt(fields[0]);
         const name = fields[1];
         const initials = fields[2];
-        const classification = fields[3].split(';').filter(e => !(e.match(/\s/) || !e));
+        const tags = fields[3].split(';').filter(e => !(e.match(/\s/) || !e));
         const orgEmail = fields[4];
         const councillorEmail = fields[6];
         const presidentEmail = fields[7];
@@ -45,7 +45,7 @@ function parseActivities(filename) {
             id,
             name,
             initials,
-            classification,
+            tags,
             orgEmail,
             councillorEmail,
             presidentEmail,
@@ -56,7 +56,7 @@ function parseActivities(filename) {
         activityConfigs.push(config);
     });
 
-    return JSON.stringify(activityConfigs);
+    return activityConfigs;
 }
 
 module.exports = {

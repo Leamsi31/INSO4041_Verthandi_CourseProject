@@ -4,10 +4,14 @@ const activity = require('./activity');;
 function qualifies(s, a) {
     const yearSatisfied = s.getCoursingYear() >= a.getRequirementYear();
     
-    const studentMajor = student.getMajor();
+    const studentMajor = s.getMajor();
     let majorSatisfied = a.getRequirementCourses() == [];
-    for (const m of a.getRequirementCourses().values()) {
-        majorSatisfied = majorSatisfied || m == studentMajor;
+    
+    if (!majorSatisfied) {
+        console.log(a);
+        for (const m of a.getRequirementCourses().values()) {
+            majorSatisfied = majorSatisfied || m == studentMajor;
+        }
     }
 
     return yearSatisfied && majorSatisfied;

@@ -15,17 +15,16 @@ function tagRate(s, a) {
         }
     }
 
-    return tagRate();
+    return count;
 }
 
-function questionnaireResults(s, as) {
+function questionnaireResults(u, as) {
     // Takes a student and a list of activities, returns a sorted list of activity, rating pairs they qualify for, in descending order of how relevant they are based on tags.
-
     const re = [];
 
     for (const a of as.values()) {
-        if (studentQualification.qualifies(s, a)) {
-            const rating = tagRate(s, a);
+        if (studentQualification.qualifies(u, a)) {
+            const rating = tagRate(u, a);
             const pair = {
                 activity : a,
                 rating : rating
