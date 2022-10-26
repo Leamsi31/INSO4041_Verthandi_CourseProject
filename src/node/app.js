@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
         hash: "kajpsoe",
         coursingYear: 4,
         major: "INSO",
-        tags: ["Profesional"]
+        tags: ["Profesional", "Académica"]
     };
     const dummy = new student.Student(dummyConfig);
 

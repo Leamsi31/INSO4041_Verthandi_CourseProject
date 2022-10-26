@@ -5,14 +5,8 @@ function qualifies(s, a) {
     const yearSatisfied = s.getCoursingYear() >= a.getRequirementYear();
     
     const studentMajor = s.getMajor();
-    let majorSatisfied = a.getRequirementCourses() == [];
-    
-    if (!majorSatisfied) {
-        console.log(a);
-        for (const m of a.getRequirementCourses().values()) {
-            majorSatisfied = majorSatisfied || m == studentMajor;
-        }
-    }
+    const requirementMajors = a.getRequirementCourses();
+    const majorSatisfied = requirementMajors.length == 0 || requirementMajors.includes(studentMajor);
 
     return yearSatisfied && majorSatisfied;
 }

@@ -20,7 +20,7 @@ function tagRate(s, a) {
 
 function questionnaireResults(u, as) {
     // Takes a student and a list of activities, returns a sorted list of activity, rating pairs they qualify for, in descending order of how relevant they are based on tags.
-    const re = [];
+    let re = [];
 
     for (const a of as.values()) {
         if (studentQualification.qualifies(u, a)) {
@@ -33,7 +33,15 @@ function questionnaireResults(u, as) {
         }
     }
 
-    re.sort((a, b) => a.rating > b.rating);
+    re = re.sort((a, b) => {
+        if (a.rating > b.rating) {
+            return -1;
+        } else if (b.rating > a.rating) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
     return re;
 }
 
