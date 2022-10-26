@@ -34,3 +34,7 @@ class User {
         this.hash = hash;
     }
 };
+
+module.exports = {
+    User
+}
