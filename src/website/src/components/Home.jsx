@@ -7,7 +7,7 @@ export default class Home extends Component {
         <section id="colorlib-hero" className="js-fullheight" data-section="home">
           <div className="flexslider js-fullheight">
             <ul className="slides">
-              <li style={{backgroundImage: "url('images/index.jpg')"}}>
+              <li style={{backgroundImage: "url('images/okabe.jpg')"}}>
                 <div className="overlay" />
                 <div className="container-fluid">
                   <div className="row">
@@ -22,7 +22,7 @@ export default class Home extends Component {
                   </div>
                 </div>
               </li>
-              <li style={{backgroundImage: "url('images/index.jpg')"}}>
+              <li style={{backgroundImage: "url('images/literally_me1.jpg')"}}>
                 <div className="overlay" />
                 <div className="container-fluid">
                   <div className="row">
@@ -37,7 +37,7 @@ export default class Home extends Component {
                   </div>
                 </div>
               </li>
-              { <li style={{backgroundImage: 'url(images/index.jpg)'}}>
+              { <li style={{backgroundImage: 'url(images/Target_Audience1.jpg)'}}>
                 <div className="overlay" />
                 <div className="container-fluid">
                   <div className="row">
