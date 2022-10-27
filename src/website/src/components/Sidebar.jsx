@@ -39,10 +39,16 @@ export default class Sidebar extends Component {
                       About
                     </a>
                   </li>
-                  <li>
-                    <SearchBar placeholder="Search for extracurriculars..." />{" "}
-                    {/*Added search bar*/}
-                  </li>
+                  <div>
+                    <li>
+                      <SearchBar
+                        placeholder="Search for extracurriculars..."
+                        data={""}
+                      />
+                      {/*Added search bar*/}
+                    </li>
+                  </div>
+
                   {/* {<li><a href="https://www.stealmylogin.com/demo.html" data-nav-section="Login">Login</a></li> } */}
                   {/* <li><a href="#" data-nav-section="blog">Blog</a></li> */}
                   {/* <li><a href="#timeline" data-nav-section="timeline">Timeline</a></li> */}

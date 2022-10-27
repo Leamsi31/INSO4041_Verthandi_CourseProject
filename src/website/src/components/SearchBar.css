@@ -10,7 +10,7 @@
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
   font-size: 10px;
-  padding: 5px;
+  padding-left: 5px;
   height: 20px;
   width: 200px;
 }
@@ -22,7 +22,7 @@
   border-radius: 5px;
   background-color: white;
   display: inline-block;
-  place-items: center;
+  place-items: absolute;
 }
 
 input:focus {
@@ -31,4 +31,41 @@ input:focus {
 
 .searchIcon svg {
   font-size: 10px;
+}
+
+.dataResult {
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.dataItem p {
+  margin-left: 10px;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: lightgrey;
+}
+
+#clearBtn {
+  cursor: pointer;
 }

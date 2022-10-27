@@ -22,7 +22,6 @@ const Layout = () => {
         <Sidebar></Sidebar>
         <div id="colorlib-main">
           <Home></Home>
-          <SearchBar></SearchBar>
           <About></About>
           {/* {<Test></Test>} */}
           {/* <Projects></Projects> */}
