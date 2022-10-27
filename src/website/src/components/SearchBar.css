@@ -1,6 +1,8 @@
 .searchInputs {
   margin-top: 10px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search input {
