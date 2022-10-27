@@ -156,6 +156,7 @@ figure figcaption {
   color: rgb(255, 255, 255); /*RSDA@UPRM*/
   padding-right: 0.3em;
 }
+
 #colorlib-aside #colorlib-main-menu {
   display: block;
   width: 100%;
@@ -212,6 +213,7 @@ figure figcaption {
   -o-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 #colorlib-aside #colorlib-main-menu ul li a:hover {
   text-decoration: none;
   color: black;
