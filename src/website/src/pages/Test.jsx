@@ -26,6 +26,7 @@ function Test() {
                     <tr>
                     <th>ID</th>
                     <th>Nombre de la organización</th>
+                    <th>Clasificacion</th>
                     <th>Correo electrónico</th>
                     <th>Decanato al que se dirige</th>
                     <th>Correo Consejer@</th>
