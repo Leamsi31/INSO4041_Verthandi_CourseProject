@@ -60,10 +60,8 @@ export default class Sidebar extends Component {
                 {
                   <li>
                     <a
-                      href="https://www.stealmylogin.com/demo.html"
+                      href="Auth"
                       data-nav-section="Login"
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       Login
                     </a>

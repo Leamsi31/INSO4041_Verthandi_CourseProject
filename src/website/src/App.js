@@ -10,6 +10,7 @@ import Test from "./pages/Test";
 import Layout from "./pages/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
+import Auth from "./pages/Auth";
 
 class App extends Component {
   render() {
@@ -34,6 +35,7 @@ class App extends Component {
           <Routes>
             <Route exact path="/" element={<Layout />} />
             <Route exact path="/test" element={<Test />} />
+            <Route exact path="/Auth" element={<Auth />} />
           </Routes>
         </BrowserRouter>
       </>
