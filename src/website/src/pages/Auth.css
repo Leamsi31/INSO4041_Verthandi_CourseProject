@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body {
+/*Main issue*/
+.SignupFormBody {
   margin: 0;
   font-family: Roboto, -apple-system, "Helvetica Neue", "Segoe UI", Arial,
     sans-serif;
