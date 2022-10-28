@@ -1,6 +1,7 @@
 const path = require('path');
 const http = require('http');
 const fs = require('fs');
+const express = require('express');
 
 const parser = require('./parser');
 const tag = require('./tag-rate');
@@ -8,7 +9,8 @@ const tag = require('./tag-rate');
 const student = require('./student');
 const activity = require('./activity');
 
-const server = http.createServer((req, res) => {
+const app = express();
+app.get('/', (req, res) => {
     const activityConfigs = parser.parseActivities('..\\..\\data\\activities.csv\\');
     res.writeHead(200, { 'Content-Type': 'application/json'})
 
@@ -31,4 +33,4 @@ const server = http.createServer((req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
