@@ -35,10 +35,14 @@ export default class TagSelection extends Component {
         return (
             <div className="tag-selection container">
                 <div className="tag-group">
-                    {allTagsDisplay}
+                    <ul>
+                        {allTagsDisplay}
+                    </ul>
                 </div>
                 <div className="tag-group">
-                    {selectedTagsDisplay}
+                    <ul>
+                        {selectedTagsDisplay}
+                    </ul>
                 </div>
             </div>
         )
