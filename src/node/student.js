@@ -1,6 +1,6 @@
-const user = require('./user');
+import user from './user.js';
 
-class Student extends user.User {
+class Student /* extends user.User */ {
 
     #coursingYear
     #major
@@ -8,7 +8,7 @@ class Student extends user.User {
 
     constructor(userconfig) {
         // Super constructor will initialize all the account credentials
-        super(userconfig);
+        // super(userconfig);
 
         this.coursingYear = userconfig.coursingYear;
         this.major = userconfig.major;
@@ -32,6 +32,4 @@ class Student extends user.User {
     }
 };
 
-module.exports = {
-    Student
-};
+export default Student

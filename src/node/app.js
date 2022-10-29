@@ -1,16 +1,13 @@
-const path = require('path');
-const http = require('http');
-const fs = require('fs');
+import express from 'express';
+import parser from './parser.js';
+import tag from './tag-rate.js';
 
-const parser = require('./parser');
-const tag = require('./tag-rate');
+import Student from './student.js';
+import Activity from './activity.js';
 
-const student = require('./student');
-const activity = require('./activity');
-
-const server = http.createServer((req, res) => {
-    const activityConfigs = parser.parseActivities('..\\..\\data\\activities.csv\\');
-    res.writeHead(200, { 'Content-Type': 'application/json'})
+const app = express();
+app.get('/questionnaire', (req, res) => {
+    const activityConfigs = parser('..\\..\\data\\activities.csv\\');
 
     const dummyConfig = {
         username : "Pepito Perez",
@@ -19,16 +16,15 @@ const server = http.createServer((req, res) => {
         major: "INSO",
         tags: ["Profesional", "Académica"]
     };
-    const dummy = new student.Student(dummyConfig);
+    const dummy = new Student(dummyConfig);
 
-    const activities = activityConfigs.map((config) => new activity.Activity(config));
+    const activities = activityConfigs.map((config) => new Activity(config));
 
-    const json = JSON.stringify(tag.questionnaireResults(dummy, activities));
+    const questionnaireRes = tag(dummy, activities);
 
-    res.end(json);
+    res.json(questionnaireRes);
 });
 
 
-
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

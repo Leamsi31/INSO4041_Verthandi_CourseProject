@@ -2,3 +2,4 @@ src/node/node_modules/
 src/website/node_modules/
 src/website/yarn.lock
 src/website/package-lock.json
+src/node/package-lock.json

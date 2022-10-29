@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Timeline from "./components/Timeline";
-import Blogs from "./components/Blogs";
-import Projects from "./components/Projects";
-import Test from "./pages/Test";
-import Layout from "./pages/Layout";
+import Test from "./pages/Test.jsx";
+import Layout from "./pages/Layout.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SearchBar from "./components/SearchBar";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Auth.jsx";
 
 class App extends Component {
   render() {
