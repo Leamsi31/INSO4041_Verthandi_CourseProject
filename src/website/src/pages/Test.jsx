@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./Test.css"
 
 export default class Test extends Component {
     constructor() {
@@ -39,8 +40,8 @@ export default class Test extends Component {
                 (pair)=>{
                     return(
                         <tr key={pair['activity']['id']}>
-                            <td>{pair['rating']}</td>
                             <td>{pair['activity']['name']}</td>
+                            <td>{pair['rating']}</td>
                             <td>{pair['activity']['requirementYear']}</td>
                             <td>{displayArr(pair['activity']['requirementCourses'])}</td>
                             <td>{displayArr(pair['activity']['tags'])}</td>
@@ -55,8 +56,8 @@ export default class Test extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                        <th>Tag Overlap</th>
                         <th>Activity</th>
+                        <th>Tag Overlap</th>
                         <th>Requirement Year</th>
                         <th>For Students in</th>
                         <th>Tags</th>
