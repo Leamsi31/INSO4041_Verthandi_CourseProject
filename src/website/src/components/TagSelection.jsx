@@ -13,6 +13,12 @@ export default class TagSelection extends Component {
 
     async getTags() {
         const rawResponse = await fetch('/tags');
+
+        if (!rawResponse.ok) {
+            const message = `An error has occured: ${response.status}`;
+            throw new Error(message);
+        }
+
         this.setState({
             allTags : await rawResponse.json(),
             selectedTags : []
