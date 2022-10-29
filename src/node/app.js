@@ -30,7 +30,11 @@ app.get('/tags', (req, res) => {
         'Profesional',
         'Académica',
         'Cívica',
-        'Religiosa'
+        'Religiosa',
+        'Social',
+        'Artes',
+        'Deportiva',
+        'Política'
     ];
 
     res.json(tags);
