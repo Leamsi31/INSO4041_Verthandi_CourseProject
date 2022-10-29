@@ -4,7 +4,7 @@ import Test from "./pages/Test.jsx";
 import Layout from "./pages/Layout.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./pages/Auth.jsx";
-import TagSelection from "./pages/TagSelection.jsx";
+import TagSelection from "./components/TagSelection.jsx";
 
 class App extends Component {
   render() {
