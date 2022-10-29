@@ -7,13 +7,30 @@ export default class TagSelection extends Component {
             allTags : [],
             selectedTags : []
         };
+
+        this.toggleTag = this.toggleTag.bind(this);
     }
 
     async getTags() {
         const rawResponse = await fetch('/tags');
         this.setState({
-            tags : await rawResponse.json(),
+            allTags : await rawResponse.json(),
             selectedTags : []
+        });
+    }
+
+    toggleTag(e) {
+        const name = e.target.innerHTML;
+        let selectedTags = this.state.selectedTags;
+
+        if (selectedTags.find((element) => element === name)) {
+            selectedTags = selectedTags.filter((element) => element !== name)
+        } else {
+            selectedTags.unshift(name);
+        }
+
+        this.setState({
+            selectedTags: selectedTags
         });
     }
 
@@ -24,12 +41,16 @@ export default class TagSelection extends Component {
     render() {
         const allTagsDisplay = this.state.allTags.map((tag) =>{
             return (
-                <li className="tag" key={tag}>{tag}</li>
+                <li className="tag all-tags"
+                onClick={this.toggleTag}
+                key={tag}>{tag}</li>
             );
         });
         const selectedTagsDisplay = this.state.selectedTags.map((tag) =>{
             return (
-                <li className="tag" key={tag}>{tag}</li>
+                <li className="tag active-tag" 
+                onClick={this.toggleTag}
+                key={tag}>{tag}</li>
             );
         });
         return (
