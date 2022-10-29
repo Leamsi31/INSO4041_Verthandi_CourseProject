@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const departmentLUT = {
     ING : ["INSO", "ICOM", "INEL", "INQU", "ININ", "INCI", "INME",],
@@ -10,9 +10,9 @@ const departmentLUT = {
 
 function parseActivities(filename) {
     const activityConfigs = [];
-    data = fs.readFileSync(filename, 'utf8')
+    const data = fs.readFileSync(filename, 'utf8')
 
-    lines = data.split('\n');
+    const lines = data.split('\n');
        
     // First 2 lines can be ignored
     lines.shift();
@@ -59,7 +59,5 @@ function parseActivities(filename) {
     return activityConfigs;
 }
 
-module.exports = {
-    parseActivities
-};
+export default parseActivities
 

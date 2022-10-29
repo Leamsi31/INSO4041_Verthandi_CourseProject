@@ -11,42 +11,44 @@ export default class Test extends Component {
         fetch('/questionnaire').then((res) => 
             res.json()
         ).then( res => {
-            activities = res 
-            DisplayData=activities.map(
-            (info)=>{
-                return(
-                    <tr>
-                        <td>{info['ID']}</td>
-                        <td>{info['Nombre de la organización']}</td>
-                        <td>{info['Clasificación']}</td>
-                        <td>{info['Correo electrónico']}</td>
-                        <td>{info['Decanato al que se dirige']}</td>
-                        <td>{info['Correo Consejer@']}</td>
-                        <td>{info['Correo electrónico President@']}</td>
-                        <td>{info['Coursing Year Requirement']}</td>
-                    </tr>
-                )
-            }
+            this.setState({
+                activities : res
+            });
+            this.render();
+        }
         )
-    }).catch( err => console.log(err))
+        .catch( err => console.log(err))
     }  
+
+    
         
     render() {
+        const displayCourses = (arr) => {
+            let out = "";
+            for (const course of arr.values()) {
+                out += course;
+            }
+            return out;
+        }
+        const DisplayData = this.state.activities.map(
+                (pair)=>{
+                    return(
+                        <tr key={pair['activity']['id']}>
+                            <td>{pair['rating']}</td>
+                            <td>{pair['activity']['name']}</td>
+                        </tr>
+                    )
+                }
+        )
         return (
         
             //JSON.stringify(data)
             <div>
-                <table class="table table-striped">
+                <table className="table table-striped">
                     <thead>
                         <tr>
-                        <th>ID</th>
-                        <th>Nombre de la organización</th>
-                        <th>Clasificacion</th>
-                        <th>Correo electrónico</th>
-                        <th>Decanato al que se dirige</th>
-                        <th>Correo Consejer@</th>
-                        <th>Correo electrónico President@</th>
-                        <th>Coursing Year Requirement</th>
+                        <th>Tag Overlap</th>
+                        <th>Activity</th>
                         </tr>
                     </thead>
                     <tbody>

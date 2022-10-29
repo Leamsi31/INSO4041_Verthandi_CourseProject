@@ -1,6 +1,3 @@
-const student = require('./student');
-const activity = require('./activity');;
-
 function qualifies(s, a) {
     const yearSatisfied = s.getCoursingYear() >= a.getRequirementYear();
     
@@ -11,6 +8,4 @@ function qualifies(s, a) {
     return yearSatisfied && majorSatisfied;
 }
 
-module.exports = {
-    qualifies
-}
+export default qualifies

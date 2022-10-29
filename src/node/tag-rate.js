@@ -1,6 +1,4 @@
-const student = require('./student');
-const activity = require('./activity');
-const studentQualification = require("./studentQualification");
+import studentQualification from "./studentQualification.js";
 
 function tagRate(s, a) {
     // Takes a student and an activity, returns the number of tags they share.
@@ -23,7 +21,7 @@ function questionnaireResults(u, as) {
     let re = [];
 
     for (const a of as.values()) {
-        if (studentQualification.qualifies(u, a)) {
+        if (studentQualification(u, a)) {
             const rating = tagRate(u, a);
             const pair = {
                 activity : a,
@@ -45,7 +43,4 @@ function questionnaireResults(u, as) {
     return re;
 }
 
-module.exports = {
-    tagRate,
-    questionnaireResults
-};
+export default questionnaireResults
