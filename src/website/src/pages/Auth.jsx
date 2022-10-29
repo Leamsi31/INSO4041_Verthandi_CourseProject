@@ -16,7 +16,6 @@ export default class Auth extends Component {
     return (
       <div className="SignupFormBody">
           <section className="forms-section">
-        <h1 className="section-title">Login</h1>
         <div className="forms">
           <div className={"form-wrapper".concat(this.state.signIn ? " is-active" : "")}>
             <button type="button" onClick={() => {
