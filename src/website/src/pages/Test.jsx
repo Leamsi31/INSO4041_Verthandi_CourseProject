@@ -1,7 +1,18 @@
-import React from 'react';
-import activities from "./activities.json"
-function Test() {
-        const DisplayData=activities.map(
+import React, {Component} from 'react';
+
+export default class Test extends Component {
+    constructor() {
+        super();
+        this.state = {
+            activities : []
+        }
+    }
+    componentDidMount = () => {
+        fetch('/questionnaire').then((res) => 
+            res.json()
+        ).then( res => {
+            activities = res 
+            DisplayData=activities.map(
             (info)=>{
                 return(
                     <tr>
@@ -17,32 +28,36 @@ function Test() {
                 )
             }
         )
-    return (
+    }).catch( err => console.log(err))
+    }  
         
-        //JSON.stringify(data)
-        <div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                    <th>ID</th>
-                    <th>Nombre de la organización</th>
-                    <th>Clasificacion</th>
-                    <th>Correo electrónico</th>
-                    <th>Decanato al que se dirige</th>
-                    <th>Correo Consejer@</th>
-                    <th>Correo electrónico President@</th>
-                    <th>Coursing Year Requirement</th>
-                    </tr>
-                </thead>
-                <tbody>
+    render() {
+        return (
+        
+            //JSON.stringify(data)
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Nombre de la organización</th>
+                        <th>Clasificacion</th>
+                        <th>Correo electrónico</th>
+                        <th>Decanato al que se dirige</th>
+                        <th>Correo Consejer@</th>
+                        <th>Correo electrónico President@</th>
+                        <th>Coursing Year Requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     
+                        
+                        {DisplayData}
+                        
+                    </tbody>
+                </table>
                  
-                    
-                    {DisplayData}
-                    
-                </tbody>
-            </table>
-             
-        </div>
-    );
+            </div>
+        );
     }
-export default Test;
+}
