@@ -1,5 +1,6 @@
 import React from 'react';
 import activities from "./activities.json"
+import './Test.css'
 function Test() {
         const DisplayData=activities.map(
             (info)=>{
