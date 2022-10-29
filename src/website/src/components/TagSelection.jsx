@@ -24,12 +24,12 @@ export default class TagSelection extends Component {
     render() {
         const allTagsDisplay = this.state.allTags.map((tag) =>{
             return (
-                <li key={tag}>{tag}</li>
+                <li className="tag" key={tag}>{tag}</li>
             );
         });
         const selectedTagsDisplay = this.state.selectedTags.map((tag) =>{
             return (
-                <li key={tag}>{tag}</li>
+                <li className="tag" key={tag}>{tag}</li>
             );
         });
         return (
@@ -38,7 +38,7 @@ export default class TagSelection extends Component {
                     {allTagsDisplay}
                 </div>
                 <div className="tag-group">
-                    {}
+                    {selectedTagsDisplay}
                 </div>
             </div>
         )
