@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./TagSelection.css"
 
 export default class TagSelection extends Component {
     constructor() {
@@ -9,6 +10,7 @@ export default class TagSelection extends Component {
         };
 
         this.toggleTag = this.toggleTag.bind(this);
+        this.tagIsSelected = this.tagIsSelected.bind(this);
     }
 
     async getTags() {
@@ -40,6 +42,10 @@ export default class TagSelection extends Component {
         });
     }
 
+    tagIsSelected(tag) {
+        return this.state.selectedTags.find((element) => element === tag) !== undefined;
+    }
+
     componentDidMount() {
         this.getTags();
     }
@@ -47,7 +53,7 @@ export default class TagSelection extends Component {
     render() {
         const allTagsDisplay = this.state.allTags.map((tag) =>{
             return (
-                <li className="tag all-tags"
+                <li className={"tag all-tags" + (this.tagIsSelected(tag) ? " active-tag" : "") }
                 onClick={this.toggleTag}
                 key={tag}>{tag}</li>
             );
@@ -62,12 +68,12 @@ export default class TagSelection extends Component {
         return (
             <div className="tag-selection container">
                 <div className="tag-group">
-                    <ul>
+                    <ul className="tag-list">
                         {allTagsDisplay}
                     </ul>
                 </div>
                 <div className="tag-group">
-                    <ul>
+                    <ul className="tag-list">
                         {selectedTagsDisplay}
                     </ul>
                 </div>

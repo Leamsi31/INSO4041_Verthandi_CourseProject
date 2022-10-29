@@ -1,0 +1,51 @@
+.tag-selection {
+    background: #ffffff;
+    width: 40%;
+    border-radius: 0.5em;
+    margin-top:10%;
+    padding: 2em 4em;
+    align-items:flex-end;
+    white-space:nowrap;
+}
+
+.tag-group {
+    align-items:center;
+    width:50%;
+    display:inline-block;
+}
+
+.tag-list {
+    align-items: center;
+    list-style-type: none;
+}
+
+.tag:hover {
+    cursor: pointer;
+    background: #0a5500;
+    width:60%;
+    padding: 0.3em 1em;
+    color: #ffffff;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.active-tag:hover{
+    background: #550000;
+}
+
+.tag {
+    width:50%;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    padding: 0.2em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 0.7em;
+    border-radius: 0.2em;
+    background: #0a550069;
+    color:#000000;
+}
+
