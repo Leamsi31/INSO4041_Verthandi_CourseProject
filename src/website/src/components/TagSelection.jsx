@@ -15,7 +15,7 @@ export default class TagSelection extends Component {
         const rawResponse = await fetch('/tags');
 
         if (!rawResponse.ok) {
-            const message = `An error has occured: ${response.status}`;
+            const message = `An error has occured: ${rawResponse.status}`;
             throw new Error(message);
         }
 
