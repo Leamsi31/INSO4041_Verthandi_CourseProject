@@ -25,6 +25,17 @@ app.get('/questionnaire', (req, res) => {
     res.json(questionnaireRes);
 });
 
+app.get('/tags', (req, res) => {
+    const tags = [
+        'Profesional',
+        'Académica',
+        'Cívica',
+        'Religiosa'
+    ];
+
+    res.json(tags);
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
