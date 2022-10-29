@@ -23,11 +23,16 @@ export default class Test extends Component {
     
         
     render() {
-        const displayCourses = (arr) => {
+        const displayArr = (arr) => {
+            if (arr.length === 0) {
+                return "Any"
+            }
             let out = "";
             for (const course of arr.values()) {
-                out += course;
+                out += course + ", ";
             }
+            const temp = out.length;
+            out = out.substring(0, temp - 2);
             return out;
         }
         const DisplayData = this.state.activities.map(
@@ -36,6 +41,9 @@ export default class Test extends Component {
                         <tr key={pair['activity']['id']}>
                             <td>{pair['rating']}</td>
                             <td>{pair['activity']['name']}</td>
+                            <td>{pair['activity']['requirementYear']}</td>
+                            <td>{displayArr(pair['activity']['requirementCourses'])}</td>
+                            <td>{displayArr(pair['activity']['tags'])}</td>
                         </tr>
                     )
                 }
@@ -49,6 +57,9 @@ export default class Test extends Component {
                         <tr>
                         <th>Tag Overlap</th>
                         <th>Activity</th>
+                        <th>Requirement Year</th>
+                        <th>For Students in</th>
+                        <th>Tags</th>
                         </tr>
                     </thead>
                     <tbody>
