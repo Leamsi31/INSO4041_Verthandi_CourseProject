@@ -230,7 +230,7 @@ figure figcaption {
   transform: scaleX(1);
 }
 #colorlib-aside #colorlib-main-menu ul li.active a {
-  color: #2c98f0;
+  color: #000000;
 }
 #colorlib-aside #colorlib-main-menu ul li.active a:after {
   visibility: visible;

@@ -29,7 +29,7 @@ export default class Sidebar extends Component {
             <nav id="colorlib-main-menu" role="navigation" className="navbar">
               <div id="navbar" className="collapse">
                 <ul>
-                  <li className="active">
+                  <li>
                     <a href="#home" data-nav-section="home">
                       Home
                     </a>
