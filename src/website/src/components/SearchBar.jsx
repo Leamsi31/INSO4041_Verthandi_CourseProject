@@ -27,11 +27,49 @@ function SearchBar({ placeholder, data }) {
   };
 
   return (
-    <div class="input-group">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">search</button>
+    <div className="input-group">
+      <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Search"
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+      <button type="button" class="btn btn-outline-primary">
+        search
+      </button>
     </div>
   );
 }
 
 export default SearchBar;
+/*
+<div className="search">
+  <div className="searchInputs">
+    <input
+      type="text"
+      placeholder={placeholder}
+      value={wordEntered}
+      onChange={handleFilter}
+    />
+    <div className="searchIcon">
+      {filteredData.length === 0 ? (
+        <SearchIcon />
+      ) : (
+        <CloseIcon id="clearBtn" onClick={clearInput} />
+      )}
+    </div>
+  </div>
+  {filteredData.length != 0 && (
+    <div className="dataResult">
+      {filteredData.slice(0, 15).map((value, key) => {
+        return (
+          <a className="dataItem" href={value.link} target="_blank">
+            <p>{value.title} </p>
+          </a>
+        );
+      })}
+    </div>
+  )}
+</div>;
+*/
