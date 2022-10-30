@@ -1,83 +1,94 @@
 import React, { Component } from "react";
-import "./TagSelection.css"
+import "./TagSelection.css";
 
 export default class TagSelection extends Component {
-    constructor() {
-        super();
-        this.state = {
-            allTags : [],
-            selectedTags : []
-        };
+  constructor() {
+    super();
+    this.state = {
+      allTags: [],
+      selectedTags: [],
+    };
 
-        this.toggleTag = this.toggleTag.bind(this);
-        this.tagIsSelected = this.tagIsSelected.bind(this);
+    this.toggleTag = this.toggleTag.bind(this);
+    this.tagIsSelected = this.tagIsSelected.bind(this);
+  }
+
+  async getTags() {
+    const rawResponse = await fetch("/tags");
+
+    if (!rawResponse.ok) {
+      const message = `An error has occured: ${rawResponse.status}`;
+      throw new Error(message);
     }
 
-    async getTags() {
-        const rawResponse = await fetch('/tags');
+    this.setState({
+      allTags: await rawResponse.json(),
+      selectedTags: [],
+    });
+  }
 
-        if (!rawResponse.ok) {
-            const message = `An error has occured: ${rawResponse.status}`;
-            throw new Error(message);
-        }
+  toggleTag(e) {
+    const name = e.target.innerHTML;
+    let selectedTags = this.state.selectedTags;
 
-        this.setState({
-            allTags : await rawResponse.json(),
-            selectedTags : []
-        });
+    if (selectedTags.find((element) => element === name)) {
+      selectedTags = selectedTags.filter((element) => element !== name);
+    } else {
+      selectedTags.unshift(name);
     }
 
-    toggleTag(e) {
-        const name = e.target.innerHTML;
-        let selectedTags = this.state.selectedTags;
+    this.setState({
+      selectedTags: selectedTags,
+    });
+  }
 
-        if (selectedTags.find((element) => element === name)) {
-            selectedTags = selectedTags.filter((element) => element !== name)
-        } else {
-            selectedTags.unshift(name);
-        }
+  tagIsSelected(tag) {
+    return (
+      this.state.selectedTags.find((element) => element === tag) !== undefined
+    );
+  }
 
-        this.setState({
-            selectedTags: selectedTags
-        });
-    }
+  componentDidMount() {
+    this.getTags();
+  }
 
-    tagIsSelected(tag) {
-        return this.state.selectedTags.find((element) => element === tag) !== undefined;
-    }
-
-    componentDidMount() {
-        this.getTags();
-    }
-
-    render() {
-        const allTagsDisplay = this.state.allTags.map((tag) =>{
-            return (
-                <li className={"tag all-tags" + (this.tagIsSelected(tag) ? " active-tag" : "") }
-                onClick={this.toggleTag}
-                key={tag}>{tag}</li>
-            );
-        });
-        const selectedTagsDisplay = this.state.selectedTags.map((tag) =>{
-            return (
-                <li className="tag active-tag" 
-                onClick={this.toggleTag}
-                key={tag}>{tag}</li>
-            );
-        });
-        return (
-            <div className="tag-selection container">
-                <div className="tag-group">
-                    <ul className="tag-list">
-                        {allTagsDisplay}
-                    </ul>
-                </div>
-                <div className="tag-group">
-                    <ul className="tag-list">
-                        {selectedTagsDisplay}
-                    </ul>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    const allTagsDisplay = this.state.allTags.map((tag) => {
+      return (
+        <li
+          className={
+            "tag all-tags" + (this.tagIsSelected(tag) ? " active-tag" : "")
+          }
+          onClick={this.toggleTag}
+          key={tag}
+        >
+          {tag}
+        </li>
+      );
+    });
+    const selectedTagsDisplay = this.state.selectedTags.map((tag) => {
+      return (
+        <li className="tag active-tag" onClick={this.toggleTag} key={tag}>
+          {tag}
+        </li>
+      );
+    });
+    return (
+      <div>
+        <h1 className="instruction-header">
+          Please select the tags according to your personal interests.
+        </h1>
+        <div className="tag-selection container">
+          <div className="tag-group">
+            <h1 className="tag-header">ALL TAGS</h1>
+            <ul className="tag-list">{allTagsDisplay}</ul>
+          </div>
+          <div className="tag-group">
+            <h1 className="tag-header">YOUR TAGS</h1>
+            <ul className="tag-list">{selectedTagsDisplay}</ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

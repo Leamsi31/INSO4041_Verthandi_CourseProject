@@ -13,9 +13,8 @@ body {
   /* background: url('..\\public\\images\\GreenSun.jpg') 100% 100% no-repeat;
     background-position: center;
     height: 100%; */
-  background-image: url('../../public/images/authentication.png');
+  background-image: url("../../public/images/authentication.png");
   background-size: cover;
-  
 }
 
 .forms-section {
@@ -205,6 +204,40 @@ body {
   100% {
     background: #d7e7f1;
     transform: translate(-40%, 10px) scaleY(0.8);
+  }
+}
+
+.form-tagselector {
+  animation: hideTagselector 0.3s ease-out forwards;
+}
+
+.form-wrapper.is-active .form-tagselector {
+  animation: showTagselector 0.3s ease-in forwards;
+}
+
+@keyframes showTagselector {
+  0% {
+    background: #d7e7f1;
+    transform: translate(-40%, 10px) scaleY(0.8);
+  }
+  50% {
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    background-color: #fff;
+    transform: translate(-35%, -20px) scaleY(1);
+  }
+}
+
+@keyframes hideTagselector {
+  0% {
+    transform: translate(0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate(0, 0) scaleY(0.8);
+  }
+  100% {
+    transform: translate(0, 0) scaleY(0.8);
   }
 }
 
