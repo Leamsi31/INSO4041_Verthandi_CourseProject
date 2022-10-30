@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser'
 import parser from './parser.js';
 import tag from './tag-rate.js';
 
@@ -6,7 +7,10 @@ import Student from './student.js';
 import Activity from './activity.js';
 
 const app = express();
-app.get('/questionnaire', (req, res) => {
+const jsonParser = bodyParser.json();
+
+app.post('/questionnaire', jsonParser, (req, res) => {
+    const body = req.body;
     const activityConfigs = parser('..\\..\\data\\activities.csv\\');
 
     const dummyConfig = {

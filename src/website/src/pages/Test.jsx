@@ -9,7 +9,17 @@ export default class Test extends Component {
         }
     }
     componentDidMount = () => {
-        fetch('/questionnaire').then((res) => 
+        let student = {
+            id: 1
+        };
+        fetch('/questionnaire', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(student)
+        }).then((res) => 
             res.json()
         ).then( res => {
             this.setState({
