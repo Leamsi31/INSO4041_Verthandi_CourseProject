@@ -12,10 +12,9 @@ export default class Auth extends Component {
     };
   }
   render() {
-    console.log(this.state.signIn);
-
     return (
       <div className="SignupFormBody">
+        <iframe name="dummy" title="dummy" className="hidden"></iframe>
         <section className="forms-section">
           <div className="forms">
             <div
@@ -43,8 +42,8 @@ export default class Auth extends Component {
                     Please, enter your email and password for login.
                   </legend>
                   <div className="input-block">
-                    <label htmlFor="login-email">E-mail</label>
-                    <input id="login-email" type="email" required></input>
+                    <label htmlFor="login-username">Username</label>
+                    <input id="login-username" type="username" required></input>
                   </div>
                   <div className="input-block">
                     <label htmlFor="login-password">Password</label>
@@ -76,7 +75,7 @@ export default class Auth extends Component {
                 Sign Up
                 <span className="underline"></span>
               </button>
-              <form className="form form-signup">
+              <form className="form form-signup" target="dummy">
                 <fieldset>
                   <legend>
                     Please, enter your email, password and password confirmation
@@ -84,8 +83,8 @@ export default class Auth extends Component {
                   </legend>
 
                   <div className="input-block">
-                    <label htmlFor="signup-email">E-mail</label>
-                    <input id="signup-email" type="email" required></input>
+                    <label htmlFor="signup-username">Username</label>
+                    <input id="signup-username" type="username" required></input>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password">Password</label>
@@ -127,8 +126,7 @@ export default class Auth extends Component {
                       tagSelector: true,
                     });
                   }}
-                  className="btn-login"
-                >
+                  className="btn-login">
                   Continue
                   <span className="underline"></span>
                 </button>
@@ -140,7 +138,7 @@ export default class Auth extends Component {
                 this.state.tagSelector ? " is-active" : ""
               )}
             >
-              <form className="form form-tagselector">
+              <form className={"form form-tagselector" + (this.state.tagSelector ? "" : " hidden")} >
                 <fieldset>
                   <legend>
                     Please, select the tags corresponding to the interest you
@@ -148,8 +146,8 @@ export default class Auth extends Component {
                   </legend>
                   <TagSelector></TagSelector>
                 </fieldset>
-                <button type="submit" className="btn-signup">
-                  Continue
+                <button type="submit" className="btn-login">
+                  Done
                 </button>
               </form>
             </div>
@@ -158,34 +156,4 @@ export default class Auth extends Component {
       </div>
     );
   }
-
-  // <div>
-  //     <input type="checkbox" id="chk" aria-hidden="true"></input>
-
-  //         <div class="signup">
-  //             <form>
-  //                 <label aria-hidden="true">Sign up</label>
-  //                 <input type="text" name="txt" placeholder="User name" required=""></input>
-  //                 <input type="email" name="email" placeholder="Email" required=""></input>
-  //                 <input type="password" name="pswd" placeholder="Password" required=""></input>
-  //                 <button>Sign up</button>
-  //             </form>
-  //         </div>
-
-  //         <div class="login">
-  //             <form>
-  //                 <label aria-hidden="true">Login</label>
-  //                 <input type="email" name="email" placeholder="Email" required=""></input>
-  //                 <input type="password" name="pswd" placeholder="Password" required=""></input>
-  //                 <button>Login</button>
-  //             </form>
-  //         </div>
-  //     </div>
-
-  // <div>
-
-  // <h1>My First Heading</h1>
-
-  // <p>My first paragraph.</p>
-  // </div>
 }

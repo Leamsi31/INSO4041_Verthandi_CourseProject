@@ -19,7 +19,7 @@ body {
 
 .forms-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
   /* background: #0a5500; */
@@ -35,6 +35,11 @@ body {
   display: flex;
   align-items: flex-start;
   margin-top: 30px;
+}
+
+.hidden {
+  position:absolute;
+
 }
 
 .form-wrapper {
