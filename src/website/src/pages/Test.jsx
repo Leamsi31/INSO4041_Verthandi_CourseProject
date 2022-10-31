@@ -10,7 +10,7 @@ export default class Test extends Component {
     }
     componentDidMount = () => {
         let student = {
-            id: '635f193aad2ec3960210db06'
+            id: '635f1b73779879260a9e6436'
         };
         fetch('/questionnaire', {
             method: 'POST',
