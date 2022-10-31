@@ -36,15 +36,15 @@ app.get('/tags', (req, res) => {
     res.json(tags);
 });
 
-const dummyConfig = {
-    username : "Queko Jones",
-    hash: "graciaskiara",
-    coursingYear: 5,
-    major: "FINA",
-    tags: ["Social", "Política"]
-};
-const dummy = new Student(dummyConfig);
-query.signUpStudent(dummy);
+// const dummyConfig = {
+//     username : "Queko Jones",
+//     hash: "graciaskiara",
+//     coursingYear: 5,
+//     major: "FINA",
+//     tags: ["Social", "Política"]
+// };
+// const dummy = new Student(dummyConfig);
+// query.signUpStudent(dummy);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

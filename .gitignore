@@ -3,3 +3,4 @@ src/website/node_modules/
 src/website/yarn.lock
 src/website/package-lock.json
 src/node/package-lock.json
+src/node/dbpassword.txt

@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import fs from 'fs';
 
 import StudentModel from './dbmodels/studentModel.js';
 import Student from './student.js';
 
-const password = '7ekWtN9UCnQAxSBK';
+const password = fs.readFileSync('dbpassword.txt', 'utf8');
 
 const mongoURI = `mongodb+srv://node:${password}@rsea-uprm.17jghkh.mongodb.net/?retryWrites=true&w=majority`;
 
