@@ -3,10 +3,12 @@ User class provides the basic structure of a user, organizer and student class w
 */
 class User {
     
+    #id
     #username
     #hash
 
     constructor(userconfig) {
+        this.id = userconfig.id;
         this.username = userconfig.username;
         this.hash = userconfig.hash;
     }
