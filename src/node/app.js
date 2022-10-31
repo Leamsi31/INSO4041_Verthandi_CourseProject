@@ -10,17 +10,19 @@ const app = express();
 const jsonParser = bodyParser.json();
 
 app.post('/questionnaire', jsonParser, (req, res) => {
-    const body = req.body;
+    const { id } = req.body;
     const activityConfigs = parser('..\\..\\data\\activities.csv\\');
 
-    const dummyConfig = {
-        username : "Pepito Perez",
-        hash: "kajpsoe",
-        coursingYear: 4,
-        major: "INSO",
-        tags: ["Profesional", "Académica"]
-    };
-    const dummy = new Student(dummyConfig);
+    // const dummyConfig = {
+    //     username : "Pepito Perez",
+    //     hash: "kajpsoe",
+    //     coursingYear: 4,
+    //     major: "INSO",
+    //     tags: ["Profesional", "Académica"]
+    // };
+    // const dummy = new Student(dummyConfig);
+
+    const s = queryStudent(id);
 
     const activities = activityConfigs.map((config) => new Activity(config));
 
