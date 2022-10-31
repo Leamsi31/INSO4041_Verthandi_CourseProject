@@ -1,6 +1,6 @@
-import user from './user.js';
+import User from './user.js';
 
-class Student /* extends user.User */ {
+class Student extends User {
 
     #coursingYear
     #major
@@ -8,7 +8,7 @@ class Student /* extends user.User */ {
 
     constructor(userconfig) {
         // Super constructor will initialize all the account credentials
-        // super(userconfig);
+        super(userconfig);
 
         this.coursingYear = userconfig.coursingYear;
         this.major = userconfig.major;
@@ -29,6 +29,17 @@ class Student /* extends user.User */ {
 
     setTags(tags) {
         this.tags = tags;
+    }
+
+    getConfig() {
+        return {
+            username: this.username,
+            hash: this.hash,
+            tags: this.tags,
+            coursingYear: this.coursingYear,
+            major: this.major,
+
+        };
     }
 };
 
