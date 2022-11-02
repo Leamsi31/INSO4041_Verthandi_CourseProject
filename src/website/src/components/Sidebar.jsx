@@ -59,12 +59,14 @@ export default class Sidebar extends Component {
               <ul>
                 {
                   <li>
-                    <a
-                      href="Auth"
-                      data-nav-section="Login"
-                    >
+                    <a href="Auth" data-nav-section="Login">
                       Login
                     </a>
+                  </li>
+                }
+                {
+                  <li>
+                    <a href="Profile">Profile</a>
                   </li>
                 }
                 {

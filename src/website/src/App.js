@@ -5,7 +5,7 @@ import Layout from "./pages/Layout.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./pages/Auth.jsx";
 import TagSelection from "./components/TagSelection.jsx";
-
+import Profile from "./pages/Profile.jsx";
 class App extends Component {
   render() {
     // return (
@@ -31,6 +31,7 @@ class App extends Component {
             <Route exact path="/test" element={<Test />} />
             <Route exact path="/Auth" element={<Auth />} />
             <Route exact path="/TagSelection" element={<TagSelection />} />
+            <Route exact path="/Profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </>
