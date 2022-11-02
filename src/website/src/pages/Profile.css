@@ -2,6 +2,14 @@ body {
   margin-top: 20px;
   color: #1a202c;
   text-align: left;
+  margin: 0;
+  font-family: Roboto, -apple-system, "Helvetica Neue", "Segoe UI", Arial,
+    sans-serif;
+  /* background-image: "url('images/GreenSun.jpg')"; */
+  /* background: url('..\\public\\images\\GreenSun.jpg') 100% 100% no-repeat;
+    background-position: center;
+    height: 100%; */
+  background-size: cover;
   background-color: #e2e8f0;
   background-image: url("../../public/images/profile-page.jpg");
 }

@@ -8,7 +8,7 @@ export default class Profile extends Component {
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <a className="home" href="index.html">
+                <a className="home" href="/">
                   Home
                 </a>
                 {/*Make route to main page*/}
