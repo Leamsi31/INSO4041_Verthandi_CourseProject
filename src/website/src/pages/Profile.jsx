@@ -3,6 +3,8 @@ import "./Profile.css";
 export default class Profile extends Component {
   render() {
     return (
+      <html>
+      <body id = "profile-body">
       <div className="container">
         <div className="main-body">
           <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -193,6 +195,8 @@ export default class Profile extends Component {
           </div>
         </div>
       </div>
+      </body>
+      </html>
     );
   }
 }

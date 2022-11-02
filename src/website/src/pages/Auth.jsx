@@ -13,6 +13,7 @@ export default class Auth extends Component {
   }
   render() {
     return (
+      <body id="auth-body">
       <div className="SignupFormBody">
         <iframe name="dummy" title="dummy" className="hidden"></iframe>
         <section className="forms-section">
@@ -154,6 +155,7 @@ export default class Auth extends Component {
           </div>
         </section>
       </div>
+      </body>
     );
   }
 }
