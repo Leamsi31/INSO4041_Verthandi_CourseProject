@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Profile.css";
+import TagSelector from "../components/TagSelection";
 export default class Profile extends Component {
   render() {
     return (
@@ -7,17 +8,6 @@ export default class Profile extends Component {
         <body id="profile-body">
           <div className="container">
             <div className="main-body">
-              <nav aria-label="breadcrumb" class="main-breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <a className="home" href="/">
-                      Home
-                    </a>
-                    {/*Make route to main page*/}
-                  </li>
-                </ol>
-              </nav>
-
               <div className="row gutters-sm">
                 <div className="col-md-4 mb-3">
                   <div className="card">
@@ -25,10 +15,6 @@ export default class Profile extends Component {
                       <div className="d-flex flex-column align-items-center text-center">
                         <div className="mt-3">
                           <h2 className="name">Hiroyuki Sawano</h2>
-
-                          <p className="text-muted font-size-sm">
-                            Art Undergraduate
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -53,7 +39,10 @@ export default class Profile extends Component {
                           </svg>
                           LinkedIn
                         </h6>
-                        <span className="text-secondary">@hiroyuki</span>
+                        <div className="input-block">
+                          <label htmlFor="edit-linkedin">LinkedIn</label>
+                          <input id="edit-linkedin" type="linkedin"></input>
+                        </div>
                       </li>
 
                       <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -74,7 +63,10 @@ export default class Profile extends Component {
                           </svg>
                           Twitter
                         </h6>
-                        <span className="text-secondary">@hiroyuki</span>
+                        <div className="input-block">
+                          <label htmlFor="edit-twitter">Twitter</label>
+                          <input id="edit-twitter" type="twitter"></input>
+                        </div>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 className="mb-0">
@@ -103,7 +95,10 @@ export default class Profile extends Component {
                           </svg>
                           Instagram
                         </h6>
-                        <span className="text-secondary">@hiroyuki</span>
+                        <div className="input-block">
+                          <label htmlFor="edit-instagram">Instagram</label>
+                          <input id="edit-instagram" type="instagram"></input>
+                        </div>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 className="mb-0">
@@ -123,7 +118,10 @@ export default class Profile extends Component {
                           </svg>
                           Facebook
                         </h6>
-                        <span className="text-secondary">@hiroyuki</span>
+                        <div className="input-block">
+                          <label htmlFor="edit-facebook">Facebook</label>
+                          <input id="edit-facebook" type="facebook"></input>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -135,8 +133,9 @@ export default class Profile extends Component {
                         <div className="col-sm-3">
                           <h4 className="mb-0">Full Name</h4>
                         </div>
-                        <div className="col-sm-9 text-secondary">
-                          Hiroyuki Sawano
+                        <div className="input-block">
+                          <label htmlFor="edit-fullname">Full Name</label>
+                          <input id="edit-fullname" type="fullname"></input>
                         </div>
                       </div>
                       <hr />
@@ -153,8 +152,9 @@ export default class Profile extends Component {
                         <div className="col-sm-3">
                           <h4 className="mb-0">Phone</h4>
                         </div>
-                        <div className="col-sm-9 text-secondary">
-                          (999)999-9999
+                        <div className="input-block">
+                          <label htmlFor="edit-phonenumber">Phone</label>
+                          <input id="edit-phone" type="phone"></input>
                         </div>
                       </div>
                       <hr />
@@ -162,21 +162,39 @@ export default class Profile extends Component {
                         <div className="col-sm-3">
                           <h4 className="mb-0">Major</h4>
                         </div>
-                        <div className="col-sm-9 text-secondary">Art</div>
+                        <div className="input-block">
+                          <label htmlFor="edit-major">Major</label>
+                          <input id="edit-major" type="major"></input>
+                        </div>
                       </div>
                       <hr />
                       <div className="row">
                         <div className="col-sm-3">
                           <h4 className="mb-0">Coursing Year</h4>
                         </div>
-                        <div className="col-sm-9 text-secondary">1st</div>
+                        <div className="input-block">
+                          <label htmlFor="edit-coursingyear">Major</label>
+                          <input id="edit-major" type="major"></input>
+                        </div>
                       </div>
                       <hr />
                       <div className="row">
                         <div className="col-sm-3">
                           <h4 className="mb-0">Tags</h4>
+                          <TagSelector></TagSelector>
                         </div>
                         <div className="col-sm-9 text-secondary"></div>
+                      </div>
+                      <hr />
+                      <div className="input-block">
+                        <label htmlFor="login-password">
+                          *Required: Re-enter password to confirm{" "}
+                        </label>
+                        <input
+                          id="login-password"
+                          type="password"
+                          required
+                        ></input>
                       </div>
                       <hr />
                       <div className="row">
@@ -184,10 +202,9 @@ export default class Profile extends Component {
                           <a
                             class="btn btn-info "
                             target="__blank"
-                            href="ProfileEdit"
+                            href="Profile"
                           >
-                            {/*Change to an edit section*/}
-                            Edit
+                            Save
                           </a>
                         </div>
                       </div>

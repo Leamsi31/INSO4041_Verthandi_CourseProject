@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Auth from "./pages/Auth.jsx";
 import TagSelection from "./components/TagSelection.jsx";
 import Profile from "./pages/Profile.jsx";
+import ProfileEdit from "./pages/ProfileEdit.jsx";
+
 class App extends Component {
   render() {
     // return (
@@ -32,6 +34,7 @@ class App extends Component {
             <Route exact path="/Auth" element={<Auth />} />
             <Route exact path="/TagSelection" element={<TagSelection />} />
             <Route exact path="/Profile" element={<Profile />} />
+            <Route exact path="/ProfileEdit" element={<ProfileEdit />} />
           </Routes>
         </BrowserRouter>
       </>
