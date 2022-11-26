@@ -7,9 +7,22 @@ import query from './query.js'
 
 import Student from './student.js';
 import Activity from './activity.js';
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
+const UserRouter = require("./controller/User")
 const app = express();
 const jsonParser = bodyParser.json();
+
+// Passport Config
+require('./config/passport')(passport);
+
+
+
 
 app.post('/questionnaire', jsonParser, (req, res) => {
     const { id } = req.body;
@@ -35,6 +48,8 @@ app.get('/tags', (req, res) => {
 
     res.json(tags);
 });
+// handle all user login / register stuff 
+app.use("/Auth", UserRouter);
 
 // const dummyConfig = {
 //     username : "Queko Jones",
