@@ -4,6 +4,7 @@ const User = require("./dbmodels/StudentModel"); // import user model
 const bcrypt = require("bcryptjs"); // import bcrypt to hash passwords
 const jwt = require("jsonwebtoken"); // import jwt to sign tokens
 
+const { forwardAuthenticated } = require("./config/auth")
 import query from './query.js'
 import Student from './student.js';
 
@@ -12,9 +13,12 @@ const router = Router(); // create router to create route bundle
 //DESTRUCTURE ENV VARIABLES WITH DEFAULTS
 const { SECRET = "secret" } = process.env;
 
+// get front end from website
+router.get("/Auth", forwardAuthenticated, (req, res) => res.render('Auth'));
+
 
 // Signup route to create a new user
-router.post("/Auth", async (req, res) => {
+router.post("/Auth",   (req, res) => {
   const { loginUsername, loginPassword, sigupUsername, signupPassword, 
           signupPassword2, major, coursingYear } = req.body;
   let errors = [];
@@ -35,7 +39,7 @@ router.post("/Auth", async (req, res) => {
   
   if (errors.length > 0 ){
     res.render("Auth"); 
-    console.log("re rendered")
+    console.log("errors")
   } else {
     // all fields filled out correctly
     
@@ -50,10 +54,7 @@ router.post("/Auth", async (req, res) => {
 
         studentConfig = {
           username: sigupUsername,
-          hash: signupPassword, 
-          tags: [], // TODO temporary until edwin gets to it
-          coursingYear: coursingYear,
-          major: major
+          hash: signupPassword, // Login route to verify a user and get a token
         }
         
         // save new user to database
@@ -66,7 +67,7 @@ router.post("/Auth", async (req, res) => {
   }
 
   // LOGIN STUFF
-  if (!loginUsername && !loginPassword) {
+  if (loginUsername && loginPassword) {
 
     passport.authenticate('local', {
       successRedirect: '/',
@@ -86,29 +87,6 @@ router.post("/Auth", async (req, res) => {
   //} catch (error) {
     //res.status(400).json({ error });
   //}
-});
-
-// Login route to verify a user and get a token
-router.post("/login", async (req, res) => {
-  try {
-    // check if the user exists
-    const user = await User.findOne({ username: req.body.username });
-    if (user) {
-      //check if password matches
-      const result = await bcrypt.compare(req.body.password, user.password);
-      if (result) {
-        // sign token and send it in response
-        const token = await jwt.sign({ username: user.username }, SECRET);
-        res.json({ token });
-      } else {
-        res.status(400).json({ error: "password doesn't match" });
-      }
-    } else {
-      res.status(400).json({ error: "User doesn't exist" });
-    }
-  } catch (error) {
-    res.status(400).json({ error });
-  }
 });
 
 module.exports = router
