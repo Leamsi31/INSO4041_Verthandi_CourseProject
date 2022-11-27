@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Auth.css";
 import TagSelector from "../components/TagSelection";
+import axios from "axios"
 
 export default class Auth extends Component {
   constructor() {
@@ -10,6 +11,18 @@ export default class Auth extends Component {
       signUp: false,
       tagSelector: false,
     };
+    this.dummyConfig = {
+      username : "Gohan",
+      hash: "Yonovoyaguardar",
+      tags: ["Social", "Política"],
+      coursingYear: 3,
+      major: "ININ"
+      
+  }; 
+    this.url = "/Auth";
+
+    
+
   }
   render() {
     return (
@@ -70,6 +83,11 @@ export default class Auth extends Component {
                     signUp: true,
                     tagSelector: false,
                   });
+                  
+                  // This sends the data created in the constructor everytime you click the Sign Up Button!!!
+                  axios.post(this.url, this.dummyConfig)
+                  .then(res => console.log('Data send'))
+                  .catch(err => console.log(err.data))
                 }}
                 className="switcher switcher-signup"
               >
