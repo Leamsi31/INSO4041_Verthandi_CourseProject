@@ -19,11 +19,11 @@ router.get("/Auth", forwardAuthenticated, (req, res) => res.render('Auth'));
 
 // Signup route to create a new user
 router.post("/Auth",   (req, res) => {
-  const { loginUsername, loginPassword, sigupUsername, signupPassword, 
+  const { loginUsername, loginPassword, sigupUsername: signupUsername, signupPassword, 
           signupPassword2, major, coursingYear } = req.body;
   let errors = [];
   // REGISTER STUFF
-  if (!sigupUsername ||  !signupPassword || !signupPassword2
+  if (!signupUsername ||  !signupPassword || !signupPassword2
       ||  major || coursingYear ) 
   {
     errors.push({ msg: 'Please enter all fields' });
@@ -43,7 +43,7 @@ router.post("/Auth",   (req, res) => {
   } else {
     // all fields filled out correctly
     
-    User.findOne({username: sigupUsername}).then( user => {
+    User.findOne({username: signupUsername}).then( user => {
 
       if (user) {
         errors.push({msg: "User already exist"});
@@ -53,7 +53,7 @@ router.post("/Auth",   (req, res) => {
         signupPassword  =  bcrypt.hash(signupPassword, 10);
 
         studentConfig = {
-          username: sigupUsername,
+          username: signupUsername,
           hash: signupPassword, // Login route to verify a user and get a token
         }
         
