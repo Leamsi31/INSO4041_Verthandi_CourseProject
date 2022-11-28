@@ -4,12 +4,18 @@ import TagSelector from "../components/TagSelection";
 import axios from "axios"
 
 export default class Auth extends Component {
+  
   constructor() {
     super();
     this.state = {
       signIn: true,
       signUp: false,
       tagSelector: false,
+      username: "",
+      hash: "",
+      tags: [],
+      coursingYear: 0,
+      major: ""
     };
     this.dummyConfig = {
       username : "Gohan",
@@ -23,7 +29,46 @@ export default class Auth extends Component {
 
     
 
+    
+
   }
+  
+
+  handleUsername(e) {
+    this.setState({username : e.target.value})
+    var x = "This is e value:"
+    console.log(x)
+    console.log(e.target.value)
+  }
+  handlePassword(e){
+    this.setState({hash : e.target.value})
+    
+  }
+  handleTags(e){
+    //this.setState({tags: document.getElementById("signup-coursingYear").value})
+  }
+  handleCoursingYear(e){
+    this.setState({coursingYear : e.target.value})
+  }
+
+  handleMajor(e){
+    this.setState({major : e.target.value})
+  }
+
+  handleSignup(){
+    const config = {
+      username : this.state.username,
+      hash: this.state.hash,
+      tags: ["Social", "Política"],
+      coursingYear: this.state.coursingYear,
+      major: this.state.major
+    }
+
+    axios.post(this.url, config)
+      .then(res => console.log('Data send'))
+      .catch(err => console.log(err.data))
+  }
+
   render() {
     return (
       <body id="auth-body">
@@ -85,9 +130,9 @@ export default class Auth extends Component {
                   });
                   
                   // This sends the data created in the constructor everytime you click the Sign Up Button!!!
-                  axios.post(this.url, this.dummyConfig)
-                  .then(res => console.log('Data send'))
-                  .catch(err => console.log(err.data))
+                  // axios.post(this.url, this.dummyConfig)
+                  // .then(res => console.log('Data send'))
+                  // .catch(err => console.log(err.data))
                 }}
                 className="switcher switcher-signup"
               >
@@ -103,13 +148,15 @@ export default class Auth extends Component {
 
                   <div className="input-block">
                     <label htmlFor="signup-username">Username</label>
-                    <input id="signup-username" type="username" required></input>
+                    <input id="signup-username" type="username" onChange={ this.handleUsername.bind(this) }  required></input>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password">Password</label>
                     <input
                       id="signup-password"
                       type="password"
+                      onChange={ this.handlePassword.bind(this) } 
+                      
                       required
                     ></input>
                   </div>
@@ -125,13 +172,15 @@ export default class Auth extends Component {
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-mayor">Major</label>
-                    <input id="signup-mayor" type="mayor" required></input>
+                    <input id="signup-mayor" type="mayor" onChange={ this.handleMajor.bind(this) }  required></input>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password">Coursing Year</label>
                     <input
                       id="signup-coursingYear"
-                      type="coursingYear"
+                      type="coursingYear" 
+                      onChange={ this.handleCoursingYear.bind(this) } 
+                      
                       required
                     ></input>
                   </div>
@@ -144,6 +193,7 @@ export default class Auth extends Component {
                       signUp: false,
                       tagSelector: true,
                     });
+                    this.handleSignup()
                   }}
                   className="btn-login">
                   Continue
@@ -165,7 +215,8 @@ export default class Auth extends Component {
                   </legend>
                   <TagSelector></TagSelector>
                 </fieldset>
-                <button type="submit" className="btn-login">
+                <button type="submit" className="btn-login"
+                >
                   Done
                 </button>
               </form>
